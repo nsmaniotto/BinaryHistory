@@ -18,6 +18,23 @@ BinaryHistory::~BinaryHistory()
     free(this->history);
 }
 
+void BinaryHistory::updateTrueOccurrences(bool addedOccurrence)
+{
+    unsigned int oldestOccurrence;
+    unsigned int addedOccurrenceValue = 0u;
+
+    if(addedOccurrence)
+    {
+        addedOccurrenceValue = 1u;
+    }
+
+    // Read the oldest occurrence
+    oldestOccurrence = *(this->history) >> (this->historySize - 1);
+
+    this->trueOccurrences -= oldestOccurrence;
+    this->trueOccurrences += addedOccurrenceValue;
+}
+
 unsigned int BinaryHistory::getHistory() const
 {
     return *(this->history);
@@ -26,6 +43,23 @@ unsigned int BinaryHistory::getHistory() const
 unsigned int BinaryHistory::getHistorySize() const
 {
     return this->historySize;
+}
+
+unsigned int BinaryHistory::getOccurrencesOf(bool b) const
+{
+    unsigned int occurrences = this->trueOccurrences;
+
+    if(!b)
+    {
+        occurrences = this->historySize - this->trueOccurrences;
+    }
+
+    return occurrences;
+}
+
+double BinaryHistory::getPercentageOf(bool searchedOccurrence) const
+{
+    return (double)(this->getOccurrencesOf(searchedOccurrence) * 100) / (double)this->historySize;
 }
 
 void BinaryHistory::add(bool b)
@@ -38,38 +72,8 @@ void BinaryHistory::add(bool b)
     }
 
     *(this->history) = (*(this->history) << 1) + newOccurrence;
-}
 
-double BinaryHistory::calculatePercentageOf(bool searchedOccurrences)
-{
-    double bOccurrencesPercentage = 0.;
-    unsigned int i;
-
-    if(searchedOccurrences)
-    {
-        unsigned int * mask, bOccurrences = 0u;
-
-        mask = (unsigned int *)calloc(this->historySize, sizeof(int));
-
-        for(i = 0u; i < this->historySize; i++) {
-            *mask = 1u << i;
-
-            if((*(this->history) & *mask) == *mask)
-            {
-                bOccurrences++;
-            }
-        }
-
-        bOccurrencesPercentage = (double)(bOccurrences * 100) / (double)this->historySize;
-
-        free(mask);
-    }
-    else
-    {
-        bOccurrencesPercentage = 100. - this->calculatePercentageOf(!searchedOccurrences);
-    }
-
-    return bOccurrencesPercentage;
+    this->updateTrueOccurrences(b);
 }
 
 void BinaryHistory::display() const
