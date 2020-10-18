@@ -1,7 +1,22 @@
+/******************************************************************************
+
+Last modification : 18/10/2020
+
+Author : Nathan Smaniotto
+
+Github : https://github.com/nsmaniotto/BinaryHistory
+
+Program : Use BinaryHistory's methods for demonstration.
+
+Version : 1.0, working algorithm.
+          Instanciate a binary history with given size,
+          Add some binary event using booleans,
+          Calculate the percentage of true/false occurrences.
+
+*******************************************************************************/
+
 #include <stdio.h>
 #include "BinaryHistory.h"
-
-//extern BinaryHistory;
 
 int main(int argc, char ** argv)
 {

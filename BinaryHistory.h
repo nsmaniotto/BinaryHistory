@@ -1,3 +1,17 @@
+/******************************************************************************
+
+Last modification : 18/10/2020
+
+Author : Nathan Smaniotto
+
+Github : https://github.com/nsmaniotto/BinaryHistory
+
+Class : Calculate the percentage of a given occurrence in a binary history.
+
+Version : 1.0
+
+*******************************************************************************/
+
 #ifndef BINARYHISTORY_H
 #define BINARYHISTORY_H
 
