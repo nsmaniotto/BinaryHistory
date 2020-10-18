@@ -8,7 +8,7 @@ Github : https://github.com/nsmaniotto/BinaryHistory
 
 Program : Use BinaryHistory's methods for demonstration.
 
-Version : 1.0, working algorithm.
+Version : 2.0, working algorithm.
           Instanciate a binary history with given size,
           Add some binary event using booleans,
           Calculate the percentage of true/false occurrences.
@@ -33,12 +33,12 @@ int main(int argc, char ** argv)
 
 
     // Calculate percentage of '0' occurring
-    falseOccurrencesPercentage = eventHistory->calculatePercentageOf(false);
+    falseOccurrencesPercentage = eventHistory->getPercentageOf(false);
 
     printf("BEFORE : Percentage of 'false' found in the binary history : %.2f%%\n", falseOccurrencesPercentage);
 
     // Calculate percentage of '1' occurring
-    trueOccurrencesPercentage = eventHistory->calculatePercentageOf(true);
+    trueOccurrencesPercentage = eventHistory->getPercentageOf(true);
 
     printf("BEFORE : Percentage of 'true' found in the binary history : %.2f%%\n", trueOccurrencesPercentage);
 
@@ -56,12 +56,12 @@ int main(int argc, char ** argv)
 
 
     // Calculate percentage of '0' occurring
-    falseOccurrencesPercentage = eventHistory->calculatePercentageOf(false);
+    falseOccurrencesPercentage = eventHistory->getPercentageOf(false);
 
     printf("AFTER : Percentage of 'false' found in the binary history : %.2f%%\n", falseOccurrencesPercentage);
 
     // Calculate percentage of '1' occurring
-    trueOccurrencesPercentage = eventHistory->calculatePercentageOf(true);
+    trueOccurrencesPercentage = eventHistory->getPercentageOf(true);
 
     printf("AFTER : Percentage of 'true' found in the binary history : %.2f%%\n", trueOccurrencesPercentage);
 

@@ -8,7 +8,7 @@ Github : https://github.com/nsmaniotto/BinaryHistory
 
 Class : Calculate the percentage of a given occurrence in a binary history.
 
-Version : 1.0
+Version : 2.0
 
 *******************************************************************************/
 
@@ -25,6 +25,10 @@ class BinaryHistory
 
         unsigned int historySize; // size in bits
 
+        unsigned int trueOccurrences; // A true occurrence is a '1'
+
+        void updateTrueOccurrences(bool);
+
     public:
         BinaryHistory(unsigned int);
         ~BinaryHistory();
@@ -33,9 +37,11 @@ class BinaryHistory
 
         unsigned int getHistorySize() const;
 
-        void add(bool);
+        unsigned int getOccurrencesOf(bool) const;
 
-        double calculatePercentageOf(bool);
+        double getPercentageOf(bool) const;
+
+        void add(bool);
 
         void display() const;
 };
