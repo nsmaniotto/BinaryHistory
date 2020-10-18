@@ -1,3 +1,19 @@
+/******************************************************************************
+
+Last modification : 18/10/2020
+
+Author : Nathan Smaniotto
+
+Github : https://github.com/nsmaniotto/BinaryHistory
+
+Class : Calculate the percentage of a given occurrence in a binary history.
+
+Version : 2.0, working algorithm.
+          Calculates the exact percentage by keeping track of the current count of '1' occurrences
+          and reading only the oldest bit rather than reading through the whole history.
+
+*******************************************************************************/
+
 #include "BinaryHistory.h"
 
 // Creates an empty binary history

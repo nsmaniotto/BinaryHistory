@@ -1,4 +1,18 @@
 #ifndef BINARYHISTORY_H
+/******************************************************************************
+
+Last modification : 18/10/2020
+
+Author : Nathan Smaniotto
+
+Github : https://github.com/nsmaniotto/BinaryHistory
+
+Class : Calculate the percentage of a given occurrence in a binary history.
+
+Version : 2.0
+
+*******************************************************************************/
+
 #define BINARYHISTORY_H
 
 #include <stdlib.h>
